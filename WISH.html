@@ -1076,7 +1076,29 @@ const saLockOriginal=iosLock;iosLock=function(locked=app==='lock'){saLockOrigina
 const saOldExtra=kitCCExtra,saOldCC=iosControl;
 kitCCMain=function(){const g=sourceAll.cc, f=n=>saAdd(g.frames[n],g.origin[0],g.origin[1]);let n=f('2x2 - Group'),m=f('2x2 - Now Playing'),r=f('1x1 - Rotation Lock'),fl=f('1x1 - Control'),b=f('1x2 - Brightness Slider'),v=f('1x2 - Volume Slider'),fo=f('2x1 - Control'),lg=f('2x2 - Control'),ca=f('1x1 - Camera'),mi=f('1x1 - Mirror Screen'),ba=f('1x1 - Battery');const ctrl=(f,...a)=>uiCCControl(...f,...a);const nf=x=>saAdd(x,n[0],n[1]);let h=`<div class="kit-cc-panel ui-cc-panel" style="${saRect(n)}"></div>`;h+=ctrl(nf(g.network[3]),'cc-toggle','airplane','비행기 모드','airplane','ui-network airplane');h+=ctrl(nf(g.network[2]),'cc-toggle','wifi','Wi-Fi','wifi','ui-network wifi');h+=ctrl(nf(g.network[1]),'cc-toggle','airdrop','AirDrop','airdrop','ui-network airdrop');const sf=x=>nf(saAdd(x,g.network[0][0],g.network[0][1]));h+=ctrl(sf(g.small[3]),'cc-toggle','cellular','셀룰러 데이터','cellular','ui-network cellular');h+=ctrl(sf(g.small[2]),'cc-toggle','bluetooth','Bluetooth','bluetooth','ui-network bluetooth');h+=ctrl(sf(g.small[1]),'cc-toggle','hotspot','개인용 핫스팟','hotspot','ui-network hotspot');h+=ctrl(sf(g.small[0]),'cc-toggle','mute','무음 모드','mute','ui-network mute');h+=uiCCMedia(m[0],m[1]);h+=ctrl(r,'cc-toggle','rotation','회전 잠금','rotation','ui-rotation');h+=ctrl(fl,'cc-link','flash','손전등','flashlight');h+=uiCCSlider('brightness',b[0],b[1],'brightness','밝기');h+=uiCCSlider('volume',v[0],v[1],'volume','음량');h+=uiCCFocus(fo[0],fo[1]);const cell=g.frames['1x1 - Camera'][2],pitch=lg[2]-cell;h+=ctrl([lg[0],lg[1],cell,cell],'cc-link','calc','계산기','calculator');h+=ctrl([lg[0]+pitch,lg[1],cell,cell],'cc-link','notes','메모','note');h+=ctrl([lg[0],lg[1]+pitch,cell,cell],'cc-link','clock','시계','clock');h+=ctrl([lg[0]+pitch,lg[1]+pitch,cell,cell],'cc-link','settings','설정','settings');h+=ctrl(ca,'cc-link','camera','카메라','camera');h+=ctrl(mi,'cc-toggle','mirror','화면 미러링','mirror');h+=ctrl(ba,'cc-toggle','battery','저전력 모드','ccBattery');return h};
 kitCCExtra=function(){const list=[['cc-toggle','sleep','수면','sleep'],['cc-toggle','contrast','대비','contrast'],['cc-toggle','hearing','듣기 지원','ear'],['cc-link','waveform','미디어','waveform'],['cc-link','shazam','음악 인식','shazam'],['cc-link','calc','계산기','calculator'],['cc-link','notes','메모','note'],['cc-toggle','record','화면 기록','record'],['cc-link','appsearch','검색','search'],['cc-link','profile','내 프로필','person'],['cc-link','translate','번역','translate'],['cc-link','clock','시계','clock'],['cc-link','settings','설정','settings']];let h=list.map(([a,k,l,g],i)=>uiCCControl(37+i%4*85,132+Math.floor(i/4)*85,70,70,a,k,l,g)).join('');return h+uiCCSlider('textsize',122,387,'textsize','텍스트 크기')};
-iosControl=function(){saOldCC();$('overlay').querySelector('.ios-cc')?.classList.add('sa-cc-source')};
+iosControl=function(){
+ saOldCC();
+ const center=$('overlay').querySelector('.ios-cc');
+ if(!center)return;
+ center.classList.add('sa-cc-source');
+ const frame=document.createElement('div');
+ frame.className='cc-proportional-frame';
+ for(const child of [...center.children]){
+  if(!child.classList.contains('ios-homebar'))frame.appendChild(child);
+ }
+ center.prepend(frame);
+};
+const ccProportionalStyle=document.createElement('style');
+ccProportionalStyle.textContent=`
+@media(max-width:520px){
+ .kit-device .phone{width:min(100vw,calc(100dvh * 402 / 874));height:min(100dvh,calc(100vw * 874 / 402))}
+}
+#phone .cc-proportional-frame{position:absolute;left:50%;top:50%;width:min(100%,46.0cqh);aspect-ratio:402 / 874;transform:translate(-50%,-50%)}
+#phone .cal27-cell .cal27-num{flex:none;width:30px;height:30px;aspect-ratio:1}
+#phone .cal27-cell.today.selected .cal27-num{background:#ff3b30;color:#fff}
+#phone[data-kit-app=calendar] .calendar span{width:40px;height:40px;max-width:100%;aspect-ratio:1;justify-self:center;padding:0}
+`;
+document.head.appendChild(ccProportionalStyle);
 // Camera source coordinates are relative to complete phone. Keep only game-scene data.
 function saCameraLayout(){const root=$('screen').querySelector('.src-camera');if(!root)return;root.classList.add('sa-camera-source');const g=sourceAll.camera;for(const [sel,k] of [['.src-camera-view','view'],['.src-camera-shutter','shutter'],['.src-camera-zooms','zoom'],['.src-camera-modes','modes'],['.src-camera-well','well'],['.src-camera-flip','flip'],['.src-camera-top','menu']]){const el=root.querySelector(sel);if(el)el.style.cssText+=`;${saRect(g[k])}`}const note=root.querySelector('.src-camera-note');if(note)note.remove();const top=root.querySelector('.src-camera-top');if(top){top.innerHTML=`<button data-act="src-camera-flash" aria-label="플래시" style="color:${srcCamera.flash?'#ffd60a':'white'}">${sourceAll.icons.flash}</button><button data-act="src-camera-controls" aria-label="카메라 조절">${sourceAll.icons.menu}</button>`;top.classList.add('sa-camera-menu')};const c=root.querySelector('.src-camera-controls');if(c){c.style.cssText+=`;${saRect(g.slider)}`;c.innerHTML=`<span class="sa-camera-exposure-symbol">${sourceAll.icons.exposure}</span><span class="sa-camera-ticks">${sourceAll.icons.ticks}</span><input id="srcCamExposure" aria-label="노출" type="range" min="-1.5" max="1.5" step="0.1" value="${srcCamera.exposure}"><span id="srcCamExposureValue">${srcCamera.exposure.toFixed(1)}</span>`}}
 // Existing feature actions, using the source quick-action menu dimensions; no app removal or invented destinations.
