@@ -966,9 +966,16 @@ xResponsiveStyle.textContent=`
 #phone .x-entry p{margin:5px 0 10px;line-height:1.5;overflow-wrap:anywhere}
 #phone .x-entry .social-detail-img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;border:1px solid #e3e8eb;border-radius:14px;background:#f5f7f8}
 #phone .x-quoted{overflow-wrap:anywhere;white-space:pre-wrap}
-#phone .x-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) 24px 24px;align-items:center;gap:3px;margin-top:5px;min-width:0;color:#60717c}
-#phone .x-actions button,#phone .x-actions .x-views{display:flex;align-items:center;min-width:0;min-height:44px;padding:0;gap:3px;font-size:clamp(10px,2.9cqw,12px);white-space:nowrap;justify-content:flex-start;font-variant-numeric:tabular-nums}
+#phone .x-entry:has(.x-actions){padding-bottom:4px}
+#phone .x-entry-main > :has(+ .x-actions){margin-bottom:0}
+#phone .x-actions{display:grid;grid-template-columns:repeat(4,minmax(max-content,1fr)) minmax(24px,1fr) 24px;align-items:center;column-gap:4px;margin-top:2px;min-width:0;color:#60717c}
+#phone .x-actions > *{display:flex;align-items:center;min-width:0;min-height:36px;padding:0;gap:2px;font-size:clamp(10px,2.9cqw,12px);white-space:nowrap;justify-content:flex-start;font-variant-numeric:tabular-nums}
+#phone .x-actions > * > span{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 #phone .x-actions svg{width:clamp(17px,4.8cqw,20px);height:clamp(17px,4.8cqw,20px);flex:none}
+@container (max-width: 280px){
+ #phone .x-actions{grid-template-columns:repeat(6,minmax(0,1fr));column-gap:0}
+ #phone .x-actions > *{display:grid;grid-template-rows:18px 12px;align-content:center;justify-content:stretch;justify-items:center;gap:1px}
+}
 #phone .x-actions .x-bookmark[aria-pressed=true]{color:#168bd2}
 #phone .x-entry-meta .x-post-menu{margin-left:auto;width:28px;height:28px;padding:4px;color:#7d8a93;flex:none;display:grid;place-items:center}
 #phone .x-post-menu svg{width:20px;height:20px}
