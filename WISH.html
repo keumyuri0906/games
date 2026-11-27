@@ -1109,17 +1109,19 @@ xResponsiveStyle.textContent=`
 #phone .x-entry-main > :has(+ .x-actions){margin-bottom:0}
 #phone .x-actions{
  --x-action-icon:clamp(17px,4.8cqw,20px);
- --x-utility-width:clamp(24px,8cqw,32px);
- display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.15fr) repeat(2,var(--x-utility-width));
- align-items:center;column-gap:clamp(1px,.5cqw,3px);margin-top:2px;min-width:0;color:#60717c;
+ display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) 24px;
+ align-items:stretch;column-gap:0;margin-top:2px;min-width:0;color:#60717c;
 }
-#phone .x-actions > *{display:flex;align-items:center;min-width:0;min-height:36px;padding:0;gap:clamp(2px,.65cqw,3px);font-size:clamp(10px,2.9cqw,12px);white-space:nowrap;justify-content:flex-start;font-variant-numeric:tabular-nums}
-#phone .x-actions > * > span{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+#phone .x-actions > *{
+ display:flex;flex-wrap:wrap;align-items:center;align-content:flex-start;justify-content:flex-start;
+ min-width:0;min-height:36px;padding:calc((36px - var(--x-action-icon))/2) 0 0;
+ gap:1px clamp(2px,.65cqw,3px);font-size:clamp(10px,2.9cqw,12px);line-height:1.2;
+ white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+#phone .x-actions > * > span{flex:none;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 #phone .x-actions svg{width:var(--x-action-icon);height:var(--x-action-icon);flex:none}
-#phone .x-actions > :nth-last-child(-n+2){justify-content:center}
 @container (max-width: 292px){
- #phone .x-actions > *{display:grid;grid-template-rows:var(--x-action-icon) 12px;align-content:center;justify-content:stretch;justify-items:center;gap:1px}
- #phone .x-actions > :nth-last-child(-n+2){justify-content:stretch}
+ #phone .x-actions > *{display:grid;grid-template-rows:var(--x-action-icon) 12px;align-content:center;justify-content:stretch;justify-items:start;padding:0;gap:1px}
 }
 #phone .x-actions .x-bookmark[aria-pressed=true]{color:#168bd2}
 #phone .x-entry-meta .x-post-menu{margin-left:auto;width:28px;height:28px;padding:4px;color:#7d8a93;flex:none;display:grid;place-items:center}
