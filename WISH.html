@@ -419,7 +419,7 @@ function back(){
 function sub(v,id=''){go(app,v,id)}
 function openSheet(h){$('overlay').innerHTML=`<div class="overlay" data-dismiss><div class="sheet"><button data-close style="float:right;color:#777;font-size:23px">×</button>${h}</div></div>`}
 function closeSheet(){$('overlay').innerHTML=''}
-function render(){const ph=$('phone');ph.classList.toggle('wall',app==='home'||app==='lock');ph.style.backgroundImage=wallpaperImage(app==='home'?s.wall:app==='lock'?lockWallpaper():'');$('status').innerHTML=`<button data-go="clock" style="padding:0">${time()}</button><button class="island" data-act="notifications" aria-label="알림센터"></button><button class="status-right" data-act="control" aria-label="제어센터"><span class="signal" style="display:flex;align-items:center;gap:3px"><svg viewBox="0 0 24 18" width="22" height="15" fill="currentColor"><rect x="1" y="12" width="4" height="5" rx="1"/><rect x="7" y="9" width="4" height="8" rx="1"/><rect x="13" y="5" width="4" height="12" rx="1"/><rect x="19" y="1" width="4" height="16" rx="1"/></svg><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M2 8a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0m-11 4a5 5 0 0 1 8 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg></span><span class="battery"></span></button>`;let html='';switch(app){case 'home':html=`<div class="home"><div class="apps">${(extraHomePage===0?Object.keys(AP).slice(0,20):extraAppIds).map(icon).join('')}</div><div class="homefill"></div><div style="display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:6px"><button aria-label="첫 번째 홈 화면" data-act="extra-page" data-id="0" style="padding:9px 5px"><i style="display:block;width:7px;height:7px;background:${extraHomePage===0?'#fff':'#ffffff65'};border-radius:50%"></i></button><button aria-label="두 번째 홈 화면" data-act="extra-page" data-id="1" style="padding:9px 5px"><i style="display:block;width:7px;height:7px;background:${extraHomePage===1?'#fff':'#ffffff65'};border-radius:50%"></i></button></div><button class="searchpill" data-act="appsearch">⌕ 검색</button><div class="dock">${Object.keys(AP).slice(20,24).map(icon).join('')}</div></div>`;break;case 'lock':html=`<div class="lock"><div>게임 DAY ${s.day}</div><div class="locktime">${time()}</div><div style="margin-top:18px">${s.notifs.length}개의 알림</div>${btn('위로 쓸어올려 열기','data-go="home"')}</div>`;break;case 'kakao':html=renderKakao();break;case 'phone':case 'contacts':html=renderPhone();break;case 'life':html=renderLife();break;case 'company':html=renderCompany();break;case 'calendar':html=renderCalendar();break;case 'mail':html=renderMail();break;case 'notes':html=renderNotes();break;case 'photos':case 'camera':html=renderPhotos();break;case 'x':html=renderX();break;case 'instagram':case 'bubble':case 'weverse':html=renderSocial();break;case 'settings':html=renderSettings();break;case 'bank':html=renderBank();break;case 'shopping':case 'delivery':html=renderShop();break;case 'map':html=renderMap();break;case 'messages':html=head('메시지')+content(s.sms.length?s.sms.map(x=>panel(row(x.from,x.text,`data-act="showtext" data-text="${esc(x.text)}"`))).join(''):empty('아직 문자 메시지가 없습니다. 결제·배송 알림은 여기에 도착합니다.'));break;case 'files':html=renderFiles();break;case 'clock':html=renderClock();break;case 'translate':html=renderTranslate();break;case 'safari':html=renderSafari();break;case 'weather':html=extraWeather();break;case 'news':html=extraNews();break;case 'wallet':html=extraWallet();break;case 'calculator':html=extraCalculator();break;default:html=head('앱')+content(empty('화면 없음'))} $('screen').innerHTML=html;if(app==='kakao'&&view==='chat'){let chat=$('chatScroll');if(chat)chat.scrollTop=chat.scrollHeight}if(activeCall&&app==='phone')renderCall();}
+function render(){const ph=$('phone');ph.classList.toggle('wall',app==='home'||app==='lock');ph.style.backgroundImage=wallpaperImage(app==='home'?s.wall:app==='lock'?lockWallpaper():'');$('status').innerHTML=`<button data-go="clock" style="padding:0">${time()}</button><button class="island" data-act="notifications" aria-label="알림센터"></button><button class="status-right" data-act="control" aria-label="제어센터"><span class="signal" style="display:flex;align-items:center;gap:3px"><svg viewBox="0 0 24 18" width="22" height="15" fill="currentColor"><rect x="1" y="12" width="4" height="5" rx="1"/><rect x="7" y="9" width="4" height="8" rx="1"/><rect x="13" y="5" width="4" height="12" rx="1"/><rect x="19" y="1" width="4" height="16" rx="1"/></svg><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M2 8a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0m-11 4a5 5 0 0 1 8 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg></span><span class="battery"></span></button>`;let html='';switch(app){case 'home':html=`<div class="home"><div class="apps">${(extraHomePage===0?Object.keys(AP).slice(0,20):extraAppIds).map(icon).join('')}</div><div class="homefill"></div><div style="display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:6px"><button aria-label="첫 번째 홈 화면" data-act="extra-page" data-id="0" style="padding:9px 5px"><i style="display:block;width:7px;height:7px;background:${extraHomePage===0?'#fff':'#ffffff65'};border-radius:50%"></i></button><button aria-label="두 번째 홈 화면" data-act="extra-page" data-id="1" style="padding:9px 5px"><i style="display:block;width:7px;height:7px;background:${extraHomePage===1?'#fff':'#ffffff65'};border-radius:50%"></i></button></div><button class="searchpill" data-act="appsearch">⌕ 검색</button><div class="dock">${Object.keys(AP).slice(20,24).map(icon).join('')}</div></div>`;break;case 'lock':html=`<div class="lock"><div>게임 DAY ${s.day}</div><div class="locktime">${time()}</div><div style="margin-top:18px">${s.notifs.length}개의 알림</div>${btn('위로 쓸어올려 열기','data-go="home"')}</div>`;break;case 'kakao':html=renderKakao();break;case 'phone':case 'contacts':html=renderPhone();break;case 'life':html=renderLife();break;case 'company':html=renderCompany();break;case 'calendar':html=renderCalendar();break;case 'mail':html=renderMail();break;case 'notes':html=renderNotes();break;case 'photos':case 'camera':html=renderPhotos();break;case 'x':if(view==='search'&&$('xSearchInput')){refreshXSearchResults();return}html=renderX();break;case 'instagram':case 'bubble':case 'weverse':html=renderSocial();break;case 'settings':html=renderSettings();break;case 'bank':html=renderBank();break;case 'shopping':case 'delivery':html=renderShop();break;case 'map':html=renderMap();break;case 'messages':html=head('메시지')+content(s.sms.length?s.sms.map(x=>panel(row(x.from,x.text,`data-act="showtext" data-text="${esc(x.text)}"`))).join(''):empty('아직 문자 메시지가 없습니다. 결제·배송 알림은 여기에 도착합니다.'));break;case 'files':html=renderFiles();break;case 'clock':html=renderClock();break;case 'translate':html=renderTranslate();break;case 'safari':html=renderSafari();break;case 'weather':html=extraWeather();break;case 'news':html=extraNews();break;case 'wallet':html=extraWallet();break;case 'calculator':html=extraCalculator();break;default:html=head('앱')+content(empty('화면 없음'))} $('screen').innerHTML=html;if(app==='kakao'&&view==='chat'){let chat=$('chatScroll');if(chat)chat.scrollTop=chat.scrollHeight}if(activeCall&&app==='phone')renderCall();}
 function renderKakao(){if(view==='chat'){let id=selected,arr=s.chats[id]||[];return `<div class="nav" style="background:#b5c9d8;border:0"><button class="back" data-back style="color:#222">‹</button><b>${esc(name(id))}</b><button data-act="chatcall" data-id="${id}">${svg('phone')}</button></div><div id="chatScroll" class="chat"><div class="datechip">DAY ${s.day}</div>${arr.map(x=>`<div class="msg ${x.from==='me'?'me':''}">${x.from==='me'?'':av(x.from)}<div>${x.from!=='me'&&id==='group'?`<div class="small">${esc(name(x.from))}</div>`:''}<div class="bubble">${x.photo?`<img src="${esc(ASSETS[x.photo]||x.photo)}" data-act="viewphoto" data-id="${esc(x.photo)}">`:''}${esc(x.text)}</div></div><span class="msgtime">${esc(x.t)}</span></div>`).join('')}${busy.has(id)?'<div class="small">답장을 기다리는 중… (최대 30초)</div>':''}${replyStatus(id,'kakao')}</div><div class="choices">${(id==='staff'?['네, 확인했습니다!','지금 출발하겠습니다.']:['오늘 일정 확인했어요.','밥 먹었어요?','고생했어요!']).map(t=>`<button class="choice" data-act="suggest" data-text="${esc(t)}">${esc(t)}</button>`).join('')}</div><form class="bar" id="chatForm"><button type="button" data-act="attachchat">＋</button><input id="chatInput" placeholder="메시지 입력" autocomplete="off" maxlength="1200"><button type="submit">전송</button></form>`}
 if(view==='profile')return profilePage('kakao');if(view==='friends')return head('친구','<button data-view="profile">편집</button>')+content(panel(row(playerName(),'내 프로필','data-view="profile"',av('me','kakao')))+section('친구')+panel(row('한서연 팀장','매니지먼트팀','data-chat="staff"',av('staff'))+(s.met?M.map(m=>row(m.n,'','data-chat="'+m.id+'"',av(m.id))).join(''):'')),'white')+tabs([['friends','친구','contact'],['','채팅','chat'],['profile','더보기','more']]);return `<div class="listhead kakao-chat-listhead"><h1>채팅</h1><button data-act="chatsearch">${svg('search')}</button><button data-view="friends">${svg('contact')}</button></div>`+content(`<input class="searchbox" id="listSearch" placeholder="채팅방 검색" value="${esc(search)}">`+Object.keys(s.chats).filter(id=>name(id).includes(search)).map(id=>{let l=s.chats[id].at(-1);return row(name(id),l?.text||'대화를 시작하세요',`data-chat="${id}"`,av(id))}).join(''),'white kakao')+tabs([['friends','친구','contact'],['','채팅','chat'],['profile','더보기','more']])}
 function renderPhone(){if(view==='detail'){let id=selected;return head('연락처',`<button data-act="editcontact" data-id="${id}">편집</button>`)+content(`<div class="hero center">${av(id,'contacts',true)}<h2>${esc(s.contacts[id]?.name||name(id))}</h2><div style="display:flex;gap:8px">${btn('전화',`data-act="call" data-id="${id}"`)}${btn('메시지',`data-chat="${id}"`,'secondary')}</div></div>`+section('연락처 사진')+panel(row('사진 변경','내 연락처에만 적용',`data-act="editcontact" data-id="${id}"`))+panel(row('즐겨찾기 '+(s.contacts[id]?.favorite?'해제':'추가'),'','data-act="favorite" data-id="'+id+'"')))}if(view==='keypad')return head('키패드')+content(`<div class="pad center"><input id="dial" placeholder="전화번호" inputmode="numeric" readonly style="text-align:center;font-size:25px;width:100%"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px">${'123456789*0#'.split('').map(x=>`<button style="width:60px;height:60px;border-radius:50%;background:#e8e8ed;font-size:27px" data-act="digit" data-id="${x}">${x}</button>`).join('')}</div>${btn('연락처로 전화','data-view="contacts"')}</div>`,'white')+phoneTabs();let isRecent=app==='phone'&&view!=='contacts'&&view!=='favorites';return head(isRecent?'최근 통화':'연락처')+content(isRecent?(s.calls.length?s.calls.map(c=>row(name(c.id),(c.kind==='missed'?'부재중':c.kind==='incoming'?'수신':'발신')+' · '+c.t,`data-act="call" data-id="${c.id}"`,av(c.id,'contacts'))).join(''):empty('최근 통화 없음')):panel(['staff',...(s.met?M.map(m=>m.id):[])].filter(id=>view!=='favorites'||s.contacts[id]?.favorite).map(id=>row(s.contacts[id]?.name||name(id),'',`data-sub="detail" data-id="${id}"`,av(id,'contacts'))).join('')),'white')+phoneTabs()}
@@ -1128,6 +1128,16 @@ xResponsiveStyle.textContent=`
 #phone .x-post-menu svg{width:20px;height:20px}
 #phone .x-profile-tabs button{flex:1 0 auto}
 #phone .x-fab{bottom:calc(63px + env(safe-area-inset-bottom,0px))}
+#phone .x-search-form{flex:none;background:#fff;border-bottom:1px solid #edf0f2}
+#phone .x-search-field{margin:4px 14px 10px;border:1px solid transparent}
+#phone .x-search-field:focus-within{background:#f4f9fc;border-color:#90c6e5}
+#phone .x-search-field input{flex:1;width:auto;min-width:0;font-size:16px;color:#15191d;padding:10px 0;appearance:none}
+#phone .x-search-field input::-webkit-search-cancel-button{display:none}
+#phone .x-search-clear{width:28px;height:32px;padding:0;flex:none;display:grid;place-items:center;color:#526675}
+#phone .x-search-clear[hidden]{display:none}
+#phone .x-search-clear svg{width:16px;height:16px}
+#phone .x-search-heading{margin:0;padding:10px 14px;font-size:14px;color:#334554;border-bottom:1px solid #edf0f2}
+#screen:has(.x-search-field:focus-within) > .x-fab{visibility:hidden}
 `;
 document.head.appendChild(xResponsiveStyle);
 
@@ -1375,13 +1385,78 @@ function xCompose(){
   ${photo}<button class="social-pill" data-act="x-add-photo">사진 추가</button>${quote}
  </div>`);
 }
+let xSearchQuery='';
+const xComposingSearchInputs=new WeakSet();
+function xSearchKey(value){return String(value??'').replace(/\s+/g,'').normalize('NFKC').toLowerCase()}
+function xSearchResultsMarkup(){
+ const query=xSearchKey(xSearchQuery).replace(/^[@#]/,'');
+ const matches=(...values)=>values.some(value=>xSearchKey(value).includes(query));
+ const group=['nctwish','엔시티위시','nct위시','위시'].includes(query);
+ const accounts=query||s.met?M.filter(m=>group||matches(m.n,m.id)).map(m=>
+  socialMemberRow(m,'x',s.follows[m.id]?'팔로잉':'비공개 계정',`data-sub="member" data-id="${m.id}"`)
+ ).join(''):'';
+ const aliases=xPlayerAliases();
+ const posts=query?s.posts.filter(p=>matches(p.text,xDisplayAuthor(p,aliases),p.mine?socialHandle('x'):p.handle,xQuoteText(p.quote))):s.posts;
+ if(query&&!accounts&&!posts.length)return socialBlank('search','검색 결과 없음','멤버 이름, @아이디, 게시물 내용으로 검색해 보세요.');
+ const trends=query?'':`<div class="x-trends"><h2>실시간 트렌드</h2>
+  <button data-social="x-search-term" data-index="#NCTWISH">#NCTWISH</button>
+  ${publicIncidents().map(i=>`<button data-act="romance-trend" data-id="${i.id}">#${esc(name(i.member))} · ${i.status==='press'?'기사':'목격담'}</button>`).join('')}
+ </div>`;
+ return trends+(accounts?`<h2 class="x-search-heading">계정</h2>${accounts}`:'')+
+  (posts.length?`<h2 class="x-search-heading">게시물</h2>${posts.map(xPostNew).join('')}`:'');
+}
+function renderXSearch(){
+ return sn('검색',`<button data-view="profile" aria-label="내 프로필">${socialMe('x')}</button>`)+
+  `<form class="x-search-form" id="xSearchForm" role="search">
+   <div class="social-search x-search-field">${sg('search')}
+    <input id="xSearchInput" type="search" placeholder="멤버 또는 게시물 검색" aria-label="검색어" value="${esc(xSearchQuery)}" enterkeyhint="search" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+    <button type="button" class="x-search-clear" id="xSearchClear" data-social="x-search-clear" aria-label="검색어 지우기" ${xSearchQuery?'':'hidden'}>${sg('close')}</button>
+   </div>
+  </form><div class="social-body" id="xSearchResults">${xSearchResultsMarkup()}</div>`+
+  xTabs()+`<button class="x-fab" data-act="xcompose" aria-label="새 게시물">${sg('plus')}</button>`;
+}
+function refreshXSearchResults(resetScroll=false){
+ const results=$('xSearchResults');
+ results.innerHTML=xSearchResultsMarkup();
+ $('xSearchClear').hidden=!xSearchQuery;
+ if(resetScroll)results.scrollTop=0;
+}
+function setXSearchQuery(value){
+ const input=$('xSearchInput');
+ if(!input)return;
+ if(input.value!==value)input.value=value;
+ if(xSearchQuery===value)return;
+ xSearchQuery=value;
+ refreshXSearchResults(true);
+}
+$('phone').addEventListener('compositionstart',e=>{
+ if(e.target.id==='xSearchInput')xComposingSearchInputs.add(e.target);
+});
+$('phone').addEventListener('compositionend',e=>{
+ if(e.target.id!=='xSearchInput')return;
+ xComposingSearchInputs.delete(e.target);
+ setXSearchQuery(e.target.value);
+});
+$('phone').addEventListener('input',e=>{
+ if(e.target.id==='xSearchInput'&&!e.isComposing&&!xComposingSearchInputs.has(e.target))setXSearchQuery(e.target.value);
+});
+$('phone').addEventListener('submit',e=>{
+ if(e.target.id!=='xSearchForm')return;
+ e.preventDefault();
+ const input=$('xSearchInput');
+ if(xComposingSearchInputs.has(input))return;
+ setXSearchQuery(input.value);
+ input.blur();
+});
 function xMemberProfile(id){
  const member=M.find(m=>m.id===id);
- if(!member||!s.met)return sn('비공개 계정',socialBack())+socialContent(socialBlank('lock','아직 연결된 계정이 없습니다.'))+xTabs();
- const following=!!s.follows[id];
+ if(!member)return sn('비공개 계정',socialBack())+socialContent(socialBlank('lock','연결된 계정이 없습니다.'))+xTabs();
+ const following=s.met&&!!s.follows[id];
+ const follow=s.met?`<button class="social-pill" data-act="follow" data-id="${esc(id)}">${following?'팔로잉':'팔로우 요청'}</button>`:'';
  return sn(esc(member.n),socialBack())+socialContent(`<div class="x-banner"></div><div class="x-profile-main">
-  <div class="x-profile-photo">${socialMemberAvatar(id,'x',true)}<button class="social-pill" data-act="follow" data-id="${esc(id)}">${following?'팔로잉':'팔로우 요청'}</button></div>
+  <div class="x-profile-photo">${socialMemberAvatar(id,'x',true)}${follow}</div>
   <h2>${esc(member.n)}</h2><p class="x-handle">비공개 계정</p>
+  ${s.met?'':'<p class="small">게임에서 멤버를 만난 뒤 팔로우할 수 있어요.</p>'}
   ${following?`<button class="social-pill" ${directMessageLink(id)}>메시지</button>`:''}
  </div>`)+xTabs();
 }
@@ -1399,18 +1474,7 @@ if(view==='thread'){
 if(view==='notifications'){const mine=s.posts.filter(p=>p.mine&&(p.likes||p.comments.length||p.reposts));return sn('알림',`<button data-view="profile" aria-label="내 프로필">${socialMe('x')}</button>`)+socialContent(mine.map(p=>`<button class="social-row" data-sub="thread" data-id="${p.id}">${sg('bell')}<span class="social-stretch"><b>${esc(p.text)}</b><small>${p.likes} 좋아요 · ${p.comments.length} 답글 · ${p.reposts} 재게시</small></span></button>`).join('')||socialBlank('bell','아직 알림이 없습니다.'))+xTabs()}
 if(view==='dm')return renderDirectInbox('x');
 if(view==='dm-thread')return renderDirectThread('x',selected);
-if(view==='search'){
- const active=publicIncidents();
- const accounts=s.met?M.filter(m=>m.n.includes(search)||m.id.includes(search.toLowerCase())).map(m=>
-  socialMemberRow(m,'x',s.follows[m.id]?'팔로잉':'비공개 계정',`data-sub="member" data-id="${m.id}"`)
- ).join(''):'';
- const posts=s.posts.filter(p=>(p.text+p.by).includes(search)).map(xPostNew).join('');
- return sn('검색',`<button data-view="profile" aria-label="내 프로필">${socialMe('x')}</button>`)+socialContent(
-  `<div class="social-search">${sg('search')}<input id="listSearch" placeholder="검색" value="${esc(search)}"></div>
-   <div class="x-trends"><h2>실시간 트렌드</h2><button data-social="x-search-term" data-index="NCTWISH">#NCTWISH</button>${active.map(i=>`<button data-act="romance-trend" data-id="${i.id}">#${esc(name(i.member))} · ${i.status==='press'?'기사':'목격담'}</button>`).join('')}</div>
-   ${accounts}${posts}${!accounts&&!posts?socialBlank('search','검색 결과 없음'):''}`
- )+xTabs()+`<button class="x-fab" data-act="xcompose" aria-label="새 게시물">${sg('plus')}</button>`;
-}
+if(view==='search')return renderXSearch();
 if(view)return socialOldX();const feed=xFeedTab==='following'?s.posts.filter(p=>p.mine||M.some(m=>s.follows[m.id]&&p.by===m.n)):s.posts;return `<div class="social-nav"><button data-view="profile" aria-label="내 프로필">${socialMe('x')}</button><b class="x-logo">𝕏</b>${sb('xsettings','data-view="editprofile"','프로필 설정')}</div><div class="x-switch"><button data-social="x-feed-tab" data-index="all" class="${xFeedTab==='all'?'active':''}">추천</button><button data-social="x-feed-tab" data-index="following" class="${xFeedTab==='following'?'active':''}">팔로잉</button></div>`+socialContent((feed.map(xPostNew).join('')||socialBlank('chat','표시할 게시물이 없습니다.'))+socialLabel())+xTabs()+`<button class="x-fab" data-act="xcompose" aria-label="새 게시물">${sg('plus')}</button>`};
 const socialOldRender=renderSocial;
 const socialOwn=(x)=>x.kind==='me'||String(x.text||'').startsWith('내 답장: ')||String(x.text||'').startsWith('내 댓글: ');
@@ -1439,7 +1503,7 @@ const socialPreviousAction=action;
 action=async function(b){const a=b.dataset.act,id=b.dataset.id,fromApp=app,fromView=view;if(a==='igpost'){go('instagram','compose');return}if(a==='xcompose'&&!s.flags.quote){go('x','compose');return}const result=await socialPreviousAction(b);if(a==='saveprofile'&&['instagram','x'].includes(id)&&fromView==='editprofile'&&app===fromApp)go(fromApp,'profile');return result};
 $('phone').addEventListener('input',e=>{if(e.target.id==='igDraftText')igDraft.text=e.target.value;if(e.target.id==='postText'&&app==='x')xDraft.text=e.target.value;if(e.target.id==='socialSearch'){const q=e.target.value.trim().toLowerCase();$('screen').querySelectorAll('[data-social-results] button').forEach(b=>b.hidden=!!q&&!b.textContent.toLowerCase().includes(q))}});
 $('phone').addEventListener('submit',e=>{if(e.target.id!=='igCommentForm')return;e.preventDefault();const p=s.ig[Number(selected)],t=$('igComment')?.value.trim();if(p&&t){(p.comments??=[]).push({by:socialHandle('instagram'),text:t,mine:true});save();render()}},true);
-$('phone').addEventListener('click',e=>{const b=e.target.closest('[data-social]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();const k=b.dataset.social,idx=b.dataset.index,n=Number(idx),p=s.ig[n];if(k==='x-feed-tab'){xFeedTab=idx;render()}else if(k==='x-profile-tab'){xProfileTab=idx;render()}else if(k==='x-search-term'){search=idx;render()}else if(k==='wv-filter'){wvFilter=idx;render()}else if(k==='wv-like'){const x=s.weverse[n];if(x){x.liked=!x.liked;save();render()}}else if(k==='ig-upload'){photoUpload(src=>{igDraft.photo=src;if(app==='instagram'&&view==='compose')render()})}else if(k==='ig-gallery'){const gallery=[...(s.photos||[]).map(p=>p.src),...(s.received||[]).map(id=>ASSETS[id])].filter(Boolean).slice(0,24);if(gallery[n]){igDraft.photo=gallery[n];render()}}else if(k==='ig-remove-photo'){igDraft.photo='';render()}else if(k==='ig-publish'){const text=igDraft.text.trim(),photo=igDraft.photo;if(!text&&!photo){toast('사진이나 문구를 추가하세요.');return}s.ig.unshift({id:uid(),text,t:time(),...(photo?{photo}:{}),comments:[]});igDraft={text:'',photo:''};save();go('instagram','profile')}else if(k==='ig-like'&&p){p.liked=!p.liked;save();render()}else if(k==='ig-bookmark'&&p){p.bookmarked=!p.bookmarked;save();toast(p.bookmarked?'게시물 저장':'저장 취소');render()}else if(k==='ig-comments'&&p){if(view!=='detail'||selected!==idx)go('instagram','detail',idx);requestAnimationFrame(()=>$('igComment')?.focus())}else if(k==='ig-menu'&&p){openSheet(`<h2>게시물</h2><div class="gap">${btn('게시물 삭제',`data-social="ig-delete-confirm" data-index="${n}"`,'secondary')}</div>`)}else if(k==='ig-delete-confirm'&&p){closeSheet();s.ig.splice(n,1);save();go('instagram','profile')}else if(k==='x-delete-menu'){openSheet(`<h2>게시물</h2><p>이 게시물을 삭제할까요?</p><div class="gap">${btn('삭제',`data-social="x-delete-confirm" data-index="${esc(idx)}"`,'secondary')}</div>`)}else if(k==='x-delete-confirm'){closeSheet();s.posts=s.posts.filter(p=>String(p.id)!==idx||!p.mine);save();go('x','profile')}},true);
+$('phone').addEventListener('click',e=>{const b=e.target.closest('[data-social]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();const k=b.dataset.social,idx=b.dataset.index,n=Number(idx),p=s.ig[n];if(k==='x-feed-tab'){xFeedTab=idx;render()}else if(k==='x-profile-tab'){xProfileTab=idx;render()}else if(k==='x-search-term'){setXSearchQuery(idx)}else if(k==='x-search-clear'){setXSearchQuery('');$('xSearchInput')?.focus()}else if(k==='wv-filter'){wvFilter=idx;render()}else if(k==='wv-like'){const x=s.weverse[n];if(x){x.liked=!x.liked;save();render()}}else if(k==='ig-upload'){photoUpload(src=>{igDraft.photo=src;if(app==='instagram'&&view==='compose')render()})}else if(k==='ig-gallery'){const gallery=[...(s.photos||[]).map(p=>p.src),...(s.received||[]).map(id=>ASSETS[id])].filter(Boolean).slice(0,24);if(gallery[n]){igDraft.photo=gallery[n];render()}}else if(k==='ig-remove-photo'){igDraft.photo='';render()}else if(k==='ig-publish'){const text=igDraft.text.trim(),photo=igDraft.photo;if(!text&&!photo){toast('사진이나 문구를 추가하세요.');return}s.ig.unshift({id:uid(),text,t:time(),...(photo?{photo}:{}),comments:[]});igDraft={text:'',photo:''};save();go('instagram','profile')}else if(k==='ig-like'&&p){p.liked=!p.liked;save();render()}else if(k==='ig-bookmark'&&p){p.bookmarked=!p.bookmarked;save();toast(p.bookmarked?'게시물 저장':'저장 취소');render()}else if(k==='ig-comments'&&p){if(view!=='detail'||selected!==idx)go('instagram','detail',idx);requestAnimationFrame(()=>$('igComment')?.focus())}else if(k==='ig-menu'&&p){openSheet(`<h2>게시물</h2><div class="gap">${btn('게시물 삭제',`data-social="ig-delete-confirm" data-index="${n}"`,'secondary')}</div>`)}else if(k==='ig-delete-confirm'&&p){closeSheet();s.ig.splice(n,1);save();go('instagram','profile')}else if(k==='x-delete-menu'){openSheet(`<h2>게시물</h2><p>이 게시물을 삭제할까요?</p><div class="gap">${btn('삭제',`data-social="x-delete-confirm" data-index="${esc(idx)}"`,'secondary')}</div>`)}else if(k==='x-delete-confirm'){closeSheet();s.posts=s.posts.filter(p=>String(p.id)!==idx||!p.mine);save();go('x','profile')}},true);
 $('phone').addEventListener('submit',e=>{
  if(e.target.id!=='directMessageForm')return;
  e.preventDefault();
