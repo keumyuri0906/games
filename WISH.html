@@ -966,9 +966,12 @@ xResponsiveStyle.textContent=`
 #phone .x-entry p{margin:5px 0 10px;line-height:1.5;overflow-wrap:anywhere}
 #phone .x-entry .social-detail-img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;border:1px solid #e3e8eb;border-radius:14px;background:#f5f7f8}
 #phone .x-quoted{overflow-wrap:anywhere;white-space:pre-wrap}
-#phone .x-actions{display:flex;align-items:center;justify-content:space-between;gap:3px;margin-top:5px;min-width:0}
-#phone .x-actions button{min-width:36px;min-height:44px;gap:4px;font-size:clamp(11px,3.1cqw,13px);white-space:nowrap;justify-content:flex-start}
-#phone .x-actions svg{width:clamp(18px,5cqw,20px);height:clamp(18px,5cqw,20px);flex:none}
+#phone .x-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) 24px 24px;align-items:center;gap:3px;margin-top:5px;min-width:0;color:#60717c}
+#phone .x-actions button,#phone .x-actions .x-views{display:flex;align-items:center;min-width:0;min-height:44px;padding:0;gap:3px;font-size:clamp(10px,2.9cqw,12px);white-space:nowrap;justify-content:flex-start;font-variant-numeric:tabular-nums}
+#phone .x-actions svg{width:clamp(17px,4.8cqw,20px);height:clamp(17px,4.8cqw,20px);flex:none}
+#phone .x-actions .x-bookmark[aria-pressed=true]{color:#168bd2}
+#phone .x-entry-meta .x-post-menu{margin-left:auto;width:28px;height:28px;padding:4px;color:#7d8a93;flex:none;display:grid;place-items:center}
+#phone .x-post-menu svg{width:20px;height:20px}
 #phone .x-profile-tabs button{flex:1 0 auto}
 #phone .x-fab{bottom:calc(63px + env(safe-area-inset-bottom,0px))}
 `;
@@ -978,8 +981,12 @@ document.head.appendChild(xResponsiveStyle);
 function retainSocialPosts(posts){let other=0;return posts.filter(p=>p.mine||other++<180)}
 const socialPaths={home:'<path d="m3 10 9-7 9 7v10h-6v-7H9v7H3z"/>',search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',plus:'<path d="M12 5v14M5 12h14"/>',create:'<rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 7v10M7 12h10"/>',heart:'<path d="M20.8 5.9a5.2 5.2 0 0 0-7.4 0L12 7.3l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 22l8.8-8.7a5.2 5.2 0 0 0 0-7.4Z"/>',chat:'<path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l1.7-4.1A8.5 8.5 0 1 1 21 11.5Z"/>',send:'<path d="m22 2-7 20-4-9-9-4L22 2ZM11 13 22 2"/>',person:'<circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/>',grid:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>',more:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',back:'<path d="m15 5-7 7 7 7"/>',arrow:'<path d="M4 12h16m-7-7 7 7-7 7"/>',bell:'<path d="M18 8a6 6 0 0 0-12 0c0 8-3 8-3 9h18c0-1-3-1-3-9M9 21h6"/>',mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',repost:'<path d="m3 7 4-4 4 4M7 3v12a3 3 0 0 0 3 3h5m6-1-4 4-4-4m4 4V9a3 3 0 0 0-3-3h-3"/>',quote:'<path d="M4 5h16v12H9l-5 4V5Z"/><path d="M9 9h6M9 13h4"/>',bookmark:'<path d="M6 3h12v18l-6-4-6 4V3Z"/>',image:'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/>',lock:'<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/>',check:'<path d="m5 12 4 4L19 6"/>',close:'<path d="m6 6 12 12M18 6 6 18"/>',delete:'<path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6M14 11v6"/>',settings:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8 3 3m0-14-3 3m-8 8-3 3"/>'};
 socialPaths.xsettings='<path d="M10 2h4l.5 2.1a8 8 0 0 1 1.8.8l1.9-1.1 2.8 2.8-1.1 1.9c.3.6.6 1.2.8 1.8L22 10v4l-2.1.5a8 8 0 0 1-.8 1.8l1.1 1.9-2.8 2.8-1.9-1.1a8 8 0 0 1-1.8.8L14 22h-4l-.5-2.1a8 8 0 0 1-1.8-.8l-1.9 1.1L3 17.4l1.1-1.9a8 8 0 0 1-.8-1.8L1 14v-4l2.1-.5a8 8 0 0 1 .8-1.8L2.8 5.8l2.8-2.8 1.9 1.1a8 8 0 0 1 1.8-.8L10 2Z"/><circle cx="12" cy="12" r="3"/>';
-socialPaths.xrepost='<path d="M4 10V7a2 2 0 0 1 2-2h12l-3-3m3 3-3 3M20 14v3a2 2 0 0 1-2 2H6l3 3m-3-3 3-3"/>';
-socialPaths.xquote='<path d="M4 4h13a3 3 0 0 1 3 3v5M4 4a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h3l3 3v-3h2"/><path d="m14 18 5-5 2 2-5 5-3 1z"/>';
+socialPaths.xrepost='<path d="m17 2 4 4-4 4M3 11V8a2 2 0 0 1 2-2h16M7 22l-4-4 4-4m14-1v3a2 2 0 0 1-2 2H3"/>';
+socialPaths.xreply='<path d="M12 3c5.2 0 9 3.2 9 7.7s-3.8 7.8-9 7.8H9l-4.5 3v-5C2.9 15.1 2 13.2 2 10.7 2 6.2 6.8 3 12 3Z"/>';
+socialPaths.xheart='<path d="M20.8 4.8a5.4 5.4 0 0 0-7.7 0L12 6l-1.1-1.2a5.4 5.4 0 0 0-7.7 7.6L12 21l8.8-8.6a5.4 5.4 0 0 0 0-7.6Z"/>';
+socialPaths.xviews='<path d="M4 20v-7m5 7V4m5 16v-9m5 9V7"/>';
+socialPaths.xbookmark='<path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/>';
+socialPaths.xshare='<path d="M12 16V3m-5 5 5-5 5 5M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/>';
 const sg=(key,filled=false)=>`<svg viewBox="0 0 24 24" fill="${filled?'currentColor':'none'}" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${socialPaths[key]||socialPaths.person}</svg>`;
 const sb=(key,attr,label,cls='')=>`<button type="button" class="social-icon-button ${cls}" ${attr} aria-label="${esc(label)}">${sg(key)}</button>`;
 const sn=(title,left='',right='',cls='')=>`<div class="social-nav ${cls}">${left||'<span style="width:38px"></span>'}<span class="social-title">${title}</span><div class="social-nav-end">${right||'<span style="width:38px"></span>'}</div></div>`;
@@ -1007,7 +1014,28 @@ if(view==='search')return sn('검색',socialBack())+socialContent(`<div class="s
 if(view==='dm')return sn(esc(socialHandle('instagram')),socialBack(),sb('create','data-view="search"','계정 찾기'))+socialContent(`<div class="social-label">연결된 게임 연락처 · 기존 대화는 카카오톡에서 열립니다.</div>${s.met?M.filter(m=>s.follows[m.id]).map(m=>socialMemberRow(m,'instagram','카카오톡 대화 연결',`data-chat="${m.id}"`)).join('')||socialBlank('mail','연결된 계정 없음'):socialBlank('mail','연결된 계정 없음')}`)+igTabs();
 return `<div class="social-nav"><span class="social-title ig-wordmark">Instagram</span><div class="social-nav-end">${sb('create','data-view="compose"','새 게시물')}${sb('send','data-view="dm"','메시지')}</div></div>`+socialContent(`<div class="ig-stories"><button class="ig-story" data-view="profile">${socialMe('instagram')}<span>내 프로필</span></button>${s.met?M.filter(m=>s.follows[m.id]).map(m=>`<button class="ig-story" data-sub="member" data-id="${m.id}">${socialMemberAvatar(m.id,'instagram')}<span>${esc('private_'+(M.indexOf(m)+1))}</span></button>`).join(''):''}</div>${s.ig.length?s.ig.map((p,i)=>igCard(p,i)).join(''):socialBlank('image','새로운 게시물 없음','내 게시물을 작성하거나 계정을 검색해 보세요.')}${socialLabel()}`)+igTabs()}
 function xPostText(text){return esc(text).replace(/(^|[\s])(#(?:[\p{L}\p{N}_]+))/gu,'$1<span class="x-hashtag">$2</span>')}
-function xPostNew(p){const own=p.mine,by=own?socialName('x'):p.by,handle=own?socialHandle('x'):(p.handle||'wish');return `<article class="x-entry">${own?socialMe('x'):'<span class="avatar">'+esc(String(by||'?').slice(0,1))+'</span>'}<div class="x-entry-main"><div class="x-entry-meta"><b>${esc(by)}</b><span>@${esc(handle)} · ${esc(p.t||'오늘')}</span></div><p>${xPostText(p.mine?(p.text||''):cleanGeneratedNotice(p.text||''))}</p>${p.photo?`<img class="social-detail-img" src="${esc(p.photo)}" alt="게시물 사진">`:''}${p.quote?`<div class="x-quoted">${esc(p.quote)}</div>`:''}<div class="x-actions"><button data-act="x-reply" data-id="${p.id}" aria-label="답글">${sg('chat')} ${(p.comments||[]).length}</button><button data-act="repost" data-id="${p.id}" aria-label="재게시" aria-pressed="${!!p.reposted}" class="${p.reposted?'selected-repost':''}">${sg('xrepost')} ${p.reposts||0}</button><button data-act="like" data-id="${p.id}" aria-label="좋아요" aria-pressed="${!!p.liked}" class="${p.liked?'selected-like':''}">${sg('heart',p.liked)} ${p.likes||0}</button><button data-act="quote" data-id="${p.id}" aria-label="인용">${sg('xquote')}</button>${own?`<button data-social="x-delete-menu" data-index="${p.id}" aria-label="게시물 삭제">${sg('more')}</button>`:''}</div></div></article>`}
+function xActionCount(value){
+ const numeric=Number(value);
+ const count=Number.isFinite(numeric)?Math.max(0,Math.floor(numeric)):0;
+ if(count>=10000)return (count/10000).toFixed(1).replace(/\.0$/,'')+'만';
+ if(count>=1000)return (count/1000).toFixed(1).replace(/\.0$/,'')+'천';
+ return String(count);
+}
+function xPostNew(p){
+ const own=p.mine,by=own?socialName('x'):p.by,handle=own?socialHandle('x'):(p.handle||'wish');
+ const id=esc(p.id);
+ const views=Number.isFinite(p.views)?xActionCount(p.views):'';
+ const menu=own?`<button class="x-post-menu" data-social="x-delete-menu" data-index="${id}" aria-label="게시물 삭제">${sg('more')}</button>`:'';
+ return `<article class="x-entry">${own?socialMe('x'):'<span class="avatar">'+esc(String(by||'?').slice(0,1))+'</span>'}<div class="x-entry-main"><div class="x-entry-meta"><b>${esc(by)}</b><span>@${esc(handle)} · ${esc(p.t||'오늘')}</span>${menu}</div><p>${xPostText(p.mine?(p.text||''):cleanGeneratedNotice(p.text||''))}</p>${p.photo?`<img class="social-detail-img" src="${esc(p.photo)}" alt="게시물 사진">`:''}${p.quote?`<div class="x-quoted">${esc(p.quote)}</div>`:''}
+ <div class="x-actions">
+  <button data-act="x-reply" data-id="${id}" aria-label="답글">${sg('xreply')}<span>${xActionCount((p.comments||[]).length)}</span></button>
+  <button data-act="x-repost-menu" data-id="${id}" aria-label="리포스트" aria-pressed="${!!p.reposted}" class="${p.reposted?'selected-repost':''}">${sg('xrepost')}<span>${xActionCount(p.reposts)}</span></button>
+  <button data-act="like" data-id="${id}" aria-label="좋아요" aria-pressed="${!!p.liked}" class="${p.liked?'selected-like':''}">${sg('xheart',p.liked)}<span>${xActionCount(p.likes)}</span></button>
+  <span class="x-views" role="img" aria-label="${views?'조회수 '+views:'조회수 기록 없음'}">${sg('xviews')}${views?`<span>${views}</span>`:''}</span>
+  <button class="x-bookmark" data-act="x-bookmark" data-id="${id}" aria-label="북마크" aria-pressed="${!!p.bookmarked}">${sg('xbookmark',p.bookmarked)}</button>
+  <button data-act="x-share" data-id="${id}" aria-label="공유">${sg('xshare')}</button>
+ </div></div></article>`;
+}
 const xReplyRequests=new Set();
 const xReplyDrafts=new Map();
 function xReplyStatus(p){
@@ -1076,8 +1104,8 @@ function xThreadComment(comment,post){
  const avatar=comment.mine?socialMe('x'):`<span class="avatar">${esc(String(comment.by||'?').slice(0,1))}</span>`;
  return `<article class="x-entry">${avatar}<div class="x-entry-main"><div class="x-entry-meta"><b>${esc(comment.by)}</b></div>${targetName}<p>${xPostText(comment.text||'')}</p></div></article>`;
 }
-function xProfile(){const p=s.profile.x||{},mine=s.posts.filter(p=>p.mine);let posts=mine,extra='';if(xProfileTab==='reposts')posts=s.posts.filter(p=>p.reposted);if(xProfileTab==='media')posts=mine.filter(p=>p.photo);if(xProfileTab==='likes')posts=s.posts.filter(p=>p.liked);if(xProfileTab==='replies'){posts=[];extra=s.posts.flatMap(p=>(p.comments||[]).filter(c=>c.mine===true||(c.mine===undefined&&c.by===socialName('x'))).map(c=>`<article class="x-entry">${socialMe('x')}<div class="x-entry-main"><div class="x-entry-meta"><b>${esc(socialName('x'))}</b><span>@${esc(socialHandle('x'))}</span></div><small>답글 · @${esc(p.handle||'wish')}</small><p>${esc(c.text)}</p><button class="social-pill" data-sub="thread" data-id="${p.id}">원문 보기</button></div></article>`)).join('')}
-return sn(esc(socialName('x')),socialBack(),sb('settings','data-view="editprofile"','프로필 편집'))+socialContent(`<div class="x-banner"></div><div class="x-profile-main"><div class="x-profile-photo">${socialMe('x',true)}<button class="social-pill" data-view="editprofile">프로필 수정</button></div><h2>${esc(socialName('x'))}${p.private?' 🔒':''}</h2><div class="x-handle">@${esc(socialHandle('x'))}</div><p>${esc(p.bio||'')}</p><div class="small">게시물 ${mine.length}개</div></div><div class="x-switch x-profile-tabs">${[['posts','게시물'],['replies','답글'],['reposts','재게시'],['media','미디어'],['likes','마음에 들어요']].map(([id,t])=>`<button class="${xProfileTab===id?'active':''}" data-social="x-profile-tab" data-index="${id}">${t}</button>`).join('')}</div>${extra||posts.map(xPostNew).join('')||socialBlank('chat','아직 표시할 게시물이 없습니다.')}`)+xTabs()+`<button class="x-fab" data-act="xcompose" aria-label="새 게시물">${sg('plus')}</button>`}
+function xProfile(){const p=s.profile.x||{},mine=s.posts.filter(p=>p.mine);let posts=mine,extra='';if(xProfileTab==='reposts')posts=s.posts.filter(p=>p.reposted);if(xProfileTab==='media')posts=mine.filter(p=>p.photo);if(xProfileTab==='likes')posts=s.posts.filter(p=>p.liked);if(xProfileTab==='bookmarks')posts=s.posts.filter(p=>p.bookmarked);if(xProfileTab==='replies'){posts=[];extra=s.posts.flatMap(p=>(p.comments||[]).filter(c=>c.mine===true||(c.mine===undefined&&c.by===socialName('x'))).map(c=>`<article class="x-entry">${socialMe('x')}<div class="x-entry-main"><div class="x-entry-meta"><b>${esc(socialName('x'))}</b><span>@${esc(socialHandle('x'))}</span></div><small>답글 · @${esc(p.handle||'wish')}</small><p>${esc(c.text)}</p><button class="social-pill" data-sub="thread" data-id="${p.id}">원문 보기</button></div></article>`)).join('')}
+return sn(esc(socialName('x')),socialBack(),sb('settings','data-view="editprofile"','프로필 편집'))+socialContent(`<div class="x-banner"></div><div class="x-profile-main"><div class="x-profile-photo">${socialMe('x',true)}<button class="social-pill" data-view="editprofile">프로필 수정</button></div><h2>${esc(socialName('x'))}${p.private?' 🔒':''}</h2><div class="x-handle">@${esc(socialHandle('x'))}</div><p>${esc(p.bio||'')}</p><div class="small">게시물 ${mine.length}개</div></div><div class="x-switch x-profile-tabs">${[['posts','게시물'],['replies','답글'],['reposts','재게시'],['media','미디어'],['likes','마음에 들어요'],['bookmarks','북마크']].map(([id,t])=>`<button class="${xProfileTab===id?'active':''}" data-social="x-profile-tab" data-index="${id}">${t}</button>`).join('')}</div>${extra||posts.map(xPostNew).join('')||socialBlank('chat','아직 표시할 게시물이 없습니다.')}`)+xTabs()+`<button class="x-fab" data-act="xcompose" aria-label="새 게시물">${sg('plus')}</button>`}
 renderX=function(){if(view==='profile')return xProfile();if(view==='editprofile')return socialEdit('x');if(view==='compose')return sn('',socialBack(),`<button class="social-pill social-blue" data-act="post">게시</button>`)+socialContent(`<div class="social-compose"><div class="social-flex">${socialMe('x')}<b>${esc(socialName('x'))}</b></div><textarea id="postText" rows="5" placeholder="무슨 일이 일어나고 있나요?">${esc(xDraft.text)}</textarea>${xDraft.photo?`<img src="${esc(xDraft.photo)}" alt="첨부한 사진"><button class="social-pill" data-act="x-remove-photo">사진 제거</button>`:''}<button class="social-pill" data-act="x-add-photo">사진 추가</button>${s.flags.quote?`<div class="x-quoted"><div class="x-quote-preview-head"><span>인용할 게시물</span><button type="button" data-act="x-remove-quote">인용 취소</button></div>${esc(s.flags.quote)}</div>`:''}</div>`);
 if(view==='thread'){let p=s.posts.find(x=>String(x.id)===selected);return sn('게시물',socialBack())+socialContent(p?xPostNew(p)+(p.comments||[]).map(c=>xThreadComment(c,p)).join('')+xReplyStatus(p):socialBlank('chat','삭제된 게시물'))+(p?`<form class="social-form" id="commentForm" autocomplete="off"><input id="commentInput" aria-label="답글 내용" placeholder="답글 작성…" value="${esc(xReplyDrafts.get(String(p.id))||'')}" autocomplete="off"><button aria-label="답글 게시">${sg('send')}</button></form>`:'')}
 if(view==='notifications'){const mine=s.posts.filter(p=>p.mine&&(p.likes||p.comments.length||p.reposts));return sn('알림',`<button data-view="profile" aria-label="내 프로필">${socialMe('x')}</button>`)+socialContent(mine.map(p=>`<button class="social-row" data-sub="thread" data-id="${p.id}">${sg('bell')}<span class="social-stretch"><b>${esc(p.text)}</b><small>${p.likes} 좋아요 · ${p.comments.length} 답글 · ${p.reposts} 재게시</small></span></button>`).join('')||socialBlank('bell','아직 알림이 없습니다.'))+xTabs()}
@@ -1268,6 +1296,35 @@ fanReaction=function(text){
 };
 const xRepliesPreviousAction=action;
 action=async function(b){
+ if(b.dataset.act==='x-repost-menu'){
+  const post=s.posts.find(p=>String(p.id)===String(b.dataset.id));
+  if(!post)return;
+  openSheet(`<h2>게시물</h2>${row(post.reposted?'리포스트 취소':'리포스트','','data-act="x-toggle-repost" data-id="'+esc(post.id)+'"')}${row('인용하기','','data-act="x-quote-post" data-id="'+esc(post.id)+'"')}`);
+  return;
+ }
+ if(b.dataset.act==='x-toggle-repost'||b.dataset.act==='x-quote-post'){
+  closeSheet();
+  return xRepliesPreviousAction({dataset:{act:b.dataset.act==='x-toggle-repost'?'repost':'quote',id:b.dataset.id}});
+ }
+ if(b.dataset.act==='x-bookmark'){
+  const post=s.posts.find(p=>String(p.id)===String(b.dataset.id));
+  if(post){post.bookmarked=!post.bookmarked;save();render()}
+  return;
+ }
+ if(b.dataset.act==='x-share'){
+  const post=s.posts.find(p=>String(p.id)===String(b.dataset.id));
+  if(!post)return;
+  const text=(post.mine?socialName('x'):post.by)+'\n'+(post.text||'')+(post.quote?'\n\n'+post.quote:'');
+  if(navigator.share){
+   try{await navigator.share({title:'WISH · X',text});return}catch(e){if(e.name==='AbortError')return}
+  }
+  try{await navigator.clipboard.writeText(text);toast('게시물 복사 완료')}
+  catch{
+   openSheet(`<h2>게시물 복사</h2><textarea id="xShareText" readonly rows="5" style="width:100%">${esc(text)}</textarea>`);
+   $('xShareText')?.select();
+  }
+  return;
+ }
  if(b.dataset.act==='x-reply'){
   if(s.flags.quote){delete s.flags.quote;save()}
   if(app!=='x'||view!=='thread'||selected!==String(b.dataset.id))go('x','thread',String(b.dataset.id));
