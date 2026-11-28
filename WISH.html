@@ -2,7 +2,7 @@
 :root{font-family:-apple-system,BlinkMacSystemFont,system-ui,'Apple SD Gothic Neo',sans-serif;color:#161719;--blue:#0879ff;--line:#e8e8eb;--muted:#8b8b93;--bg:#f3f3f7}*{box-sizing:border-box}body{margin:0;background:#15191b;display:grid;place-items:center;height:100dvh;overflow:hidden}button,input,select,textarea{font:inherit}button{border:0;cursor:pointer;color:inherit;background:none;touch-action:manipulation}button:disabled{opacity:.45}input,textarea,select{min-width:0;max-width:100%;border:1px solid #d9d9df;border-radius:10px;padding:12px;background:#fff;color:#171717}textarea{resize:vertical}button:focus-visible,input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}.phone{width:min(100vw,393px);height:min(100dvh,852px);position:relative;background:#fff;overflow:hidden;border-radius:46px;display:flex;flex-direction:column;box-shadow:0 0 0 8px #34373a,0 0 0 10px #0b0b0c,0 24px 60px #0009;isolation:isolate}.wall{background:radial-gradient(ellipse at 7% 9%,#f9f5db 0,transparent 50%),radial-gradient(ellipse at 94% 64%,#8ca9a4 0,transparent 58%),linear-gradient(152deg,#d2d9b5 5%,#a2b8a4 56%,#637c79);}.status{height:46px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 26px;font-size:14px;font-weight:700;position:relative;z-index:5}.island{position:absolute;left:50%;transform:translateX(-50%);top:9px;width:104px;height:29px;border-radius:24px;background:#101112}.status-right{display:flex;gap:5px;align-items:center}.signal{font-size:15px;letter-spacing:-2px}.battery{width:24px;height:12px;border:1px solid currentColor;border-radius:4px;padding:2px;position:relative}.battery:before{content:'';display:block;width:100%;height:100%;background:currentColor;border-radius:1px}.battery:after{content:'';position:absolute;right:-4px;top:3px;height:5px;width:2px;background:currentColor;border-radius:2px}.screen{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;position:relative}.home{flex:1;display:flex;flex-direction:column;padding:17px 20px 4px;overflow:auto}.apps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:19px 12px}.appbtn{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0;padding:0;position:relative}.appbtn span:last-child{font-size:11px;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 5px #fff5}.appicon{display:grid;place-items:center;width:57px;height:57px;border-radius:14px;box-shadow:inset 0 1px 1px #ffffff65,0 2px 4px #243a3820;position:relative;overflow:visible}.appicon svg{width:37px;height:37px}.badge{--badge-size:clamp(14px,4.73cqw,19px);position:absolute;right:calc(-.32 * var(--badge-size));top:calc(-.32 * var(--badge-size));min-width:var(--badge-size);height:var(--badge-size);padding:0 3px;border-radius:999px;background:#fa3d36;color:white;font-size:clamp(9px,2.74cqw,11px)!important;font-weight:600;display:grid;place-items:center;text-shadow:none!important}.dock{display:grid;grid-template-columns:repeat(4,1fr);padding:14px 8px;background:#ffffff49;backdrop-filter:blur(24px);border-radius:28px;margin-top:10px;flex:none}.dock .appbtn span:last-child:not(.badge){display:none}.homefill{flex:1;min-height:16px}.searchpill{align-self:center;background:#ffffff4f;border-radius:20px;padding:6px 13px;font-size:12px;color:#3b4642}.gesture{height:23px;display:grid;place-items:center;flex:none;z-index:10}.gesture button{height:20px;width:160px;display:grid;place-items:center}.gesture button:after{content:'';display:block;width:132px;height:5px;background:#161719;border-radius:4px}.nav{flex:none;display:flex;align-items:center;gap:6px;padding:4px var(--kit-inset);height:clamp(43px,11.69cqw,49px);background:#fff;border-bottom:1px solid var(--line);position:relative}.nav b{flex:1;text-align:center;font-size:16px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nav .back{color:var(--blue);font-size:26px;min-width:29px;text-align:left}.nav svg,.listhead svg,.bar svg{width:23px;height:23px;display:block}.nav .right{min-width:30px;font-size:14px;color:var(--blue)}.content{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:0 0 12px;background:var(--bg)}.white{background:#fff}.large{font-size:30px;font-weight:750;letter-spacing:-1.2px;margin:18px 17px 11px}.small{font-size:12px;color:var(--muted);line-height:1.5}.section{padding:18px 17px 7px;font-size:12px;color:#777781}.panel{margin:0 14px 12px;border-radius:14px;overflow:hidden;background:white}.row{display:flex;align-items:center;gap:var(--kit-gap);padding:clamp(8px,2.74cqw,12px) var(--kit-inset);min-height:var(--kit-row);width:100%;text-align:left;border-bottom:1px solid var(--line);background:white}.row:last-child{border-bottom:none}.row .grow{flex:1;min-width:0;overflow-wrap:anywhere}.row > .avatar{width:var(--kit-avatar);height:var(--kit-avatar)}.row .grow>div{overflow:hidden;text-overflow:ellipsis}.row strong{font-weight:600;font-size:15px}.row .chev{color:#a9a9af;font-size:22px}.avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;background:#e5e6ea;flex:none;display:grid;place-items:center;color:#9699a3;font-size:19px;overflow:hidden}.kakao .avatar{border-radius:35%}
 .kakao .row .small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .kakao .searchbox{margin:var(--kit-gap) var(--kit-inset);width:calc(100% - 2 * var(--kit-inset));min-height:var(--kit-search)}
-.kakao-chat-listhead button{width:var(--kit-toolbar);height:var(--kit-toolbar);display:grid;place-items:center;padding:0}.avatar.lg{width:84px;height:84px}.listhead{display:flex;align-items:center;justify-content:space-between;padding:18px 17px 10px}.listhead h1{font-size:25px;margin:0;letter-spacing:-.6px}.kakao-chat-listhead{justify-content:flex-start;gap:13px}.kakao-chat-listhead>button[data-act="chatsearch"]{margin-left:auto}.bar{display:flex;gap:var(--kit-gap);align-items:center;padding:var(--kit-gap) var(--kit-inset);border-top:1px solid var(--line);background:white;flex:none}.bar input{flex:1;min-width:0;padding:9px 12px;border-radius:20px;background:#f5f5f7}.bar button{font-size:15px;color:var(--blue);padding:8px 5px;font-weight:600}.tabs{display:flex;justify-content:space-around;border-top:1px solid var(--line);background:#fffffff7;flex:none;padding:8px 0 3px;gap:4px}.tab{font-size:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#81818a;flex:1;min-width:0;min-height:40px;padding:2px}.tab svg{width:var(--kit-icon);height:var(--kit-icon)}.tab.sel{color:#121212;font-weight:700}.chat{background:#b5c9d8;flex:1;overflow:auto;min-height:0;padding:12px 10px 10px;display:flex;flex-direction:column;gap:10px}.datechip{align-self:center;font-size:11px;background:#90a7b8;color:white;border-radius:15px;padding:5px 11px}.msg{display:flex;gap:7px;align-items:flex-start;max-width:92%;align-self:flex-start}.msg.me{align-self:flex-end;flex-direction:row-reverse}.msg .avatar{width:34px;height:34px}.bubble{background:#fff;padding:10px 12px;border-radius:3px 13px 13px 13px;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5;max-width:230px}.me .bubble{background:#fee500;border-radius:13px 3px 13px 13px}.msgtime{font-size:9px;color:#596d7e;align-self:flex-end;white-space:nowrap}.bubble img{width:100%;border-radius:7px;display:block}.choices{display:flex;gap:6px;overflow-x:auto;padding:7px 10px;background:#e9eef1;flex:none}.choice{flex:none;padding:7px 11px;border-radius:16px;border:1px solid #d3d8dc;background:white;font-size:12px}.btn{display:block;width:100%;background:var(--blue);color:#fff;font-weight:600;border-radius:12px;padding:13px 10px;text-align:center}.btn.secondary{background:#ebedf3;color:#1774e9}.btn.danger{background:#fff0ee;color:#d93635}.pad{padding:14px}.gap{display:grid;gap:9px}.field{display:grid;gap:5px;margin:8px 0}.field label{font-size:12px;color:#75757c}.hero{padding:clamp(14px,4.98cqw,21px) var(--kit-inset);background:white}.hero h2{font-size:23px;letter-spacing:-.8px;margin:5px 0 8px}.hero p{font-size:14px;line-height:1.65;color:#52535d;margin:8px 0}.tag{display:inline-block;padding:4px 7px;background:#edf0f4;color:#526171;font-size:11px;border-radius:6px}.timeline{background:#fff}.post{padding:14px;border-bottom:1px solid #eee;display:flex;gap:10px}.postbody{flex:1;min-width:0}.postbody p{margin:8px 0;font-size:14px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}.postactions{display:flex;justify-content:space-between;gap:5px;color:#777f89;font-size:12px}.postactions button{padding:6px 0}.photoGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}.photoGrid button{padding:0;aspect-ratio:1;overflow:hidden;background:#ededf1}.photoGrid img{width:100%;height:100%;object-fit:cover;display:block}.photoView{display:grid;grid-template:minmax(0,1fr) / minmax(0,1fr);background:#111;flex:1;min-height:0;overflow:hidden}.photoView img{width:100%;height:100%;object-fit:contain}.overlay{position:absolute;inset:0;z-index:30;background:#0006;display:flex;align-items:flex-end}.sheet{background:#f5f5f9;border-radius:24px 24px 0 0;width:100%;max-height:86%;overflow:auto;padding:12px 16px 28px}.sheet h2{font-size:20px}.toast{position:absolute;left:12px;right:12px;top:49px;z-index:40;padding:13px 14px;border-radius:18px;background:#fffffff0;box-shadow:0 8px 25px #0002;backdrop-filter:blur(20px);font-size:13px;line-height:1.4}.lock{flex:1;display:flex;flex-direction:column;align-items:center;padding-top:45px;color:#fff;text-shadow:0 2px 12px #0004}.locktime{font-size:72px;font-weight:650;letter-spacing:-4px}.lock .btn{width:75%;margin-top:auto;margin-bottom:35px;background:#ffffff38;backdrop-filter:blur(10px)}.call{
+.kakao-chat-listhead button{width:var(--kit-toolbar);height:var(--kit-toolbar);display:grid;place-items:center;padding:0}.avatar.lg{width:84px;height:84px}.listhead{display:flex;align-items:center;justify-content:space-between;padding:18px 17px 10px}.listhead h1{font-size:25px;margin:0;letter-spacing:-.6px}.kakao-chat-listhead{justify-content:flex-start;gap:13px}.kakao-chat-listhead>button[data-act="chatsearch"]{margin-left:auto}.bar{display:flex;gap:var(--kit-gap);align-items:center;padding:var(--kit-gap) var(--kit-inset);border-top:1px solid var(--line);background:white;flex:none}.bar input{flex:1;min-width:0;padding:9px 12px;border-radius:20px;background:#f5f5f7}.bar button{font-size:15px;color:var(--blue);padding:8px 5px;font-weight:600}.tabs{display:flex;justify-content:space-around;border-top:1px solid var(--line);background:#fffffff7;flex:none;padding:8px 0 3px;gap:4px}.tab{font-size:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#81818a;flex:1;min-width:0;min-height:40px;padding:2px}.tab svg{width:var(--kit-icon);height:var(--kit-icon)}.tab.sel{color:#121212;font-weight:700}.chat{background:#b5c9d8;flex:1;overflow:auto;min-height:0;padding:12px 10px 10px;display:flex;flex-direction:column;gap:10px}.datechip{align-self:center;font-size:11px;background:#90a7b8;color:white;border-radius:15px;padding:5px 11px}.msg{display:flex;gap:7px;align-items:flex-start;max-width:92%;align-self:flex-start}.msg.me{align-self:flex-end;flex-direction:row-reverse}.msg .avatar{width:34px;height:34px}.bubble{background:#fff;padding:10px 12px;border-radius:3px 13px 13px 13px;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5;max-width:230px}.me .bubble{background:#fee500;border-radius:13px 3px 13px 13px}.msgtime{font-size:9px;color:#596d7e;align-self:flex-end;white-space:nowrap}.bubble img{width:100%;border-radius:7px;display:block}.choices{display:flex;flex-wrap:wrap;gap:6px;padding:7px 10px;background:#e9eef1;flex:none}.choice{max-width:100%;padding:7px 10px;border-radius:16px;border:1px solid #d3d8dc;background:white;font-size:12px;line-height:1.3;text-align:left;overflow-wrap:anywhere}.btn{display:block;width:100%;background:var(--blue);color:#fff;font-weight:600;border-radius:12px;padding:13px 10px;text-align:center}.btn.secondary{background:#ebedf3;color:#1774e9}.btn.danger{background:#fff0ee;color:#d93635}.pad{padding:14px}.gap{display:grid;gap:9px}.field{display:grid;gap:5px;margin:8px 0}.field label{font-size:12px;color:#75757c}.hero{padding:clamp(14px,4.98cqw,21px) var(--kit-inset);background:white}.hero h2{font-size:23px;letter-spacing:-.8px;margin:5px 0 8px}.hero p{font-size:14px;line-height:1.65;color:#52535d;margin:8px 0}.tag{display:inline-block;padding:4px 7px;background:#edf0f4;color:#526171;font-size:11px;border-radius:6px}.timeline{background:#fff}.post{padding:14px;border-bottom:1px solid #eee;display:flex;gap:10px}.postbody{flex:1;min-width:0}.postbody p{margin:8px 0;font-size:14px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}.postactions{display:flex;justify-content:space-between;gap:5px;color:#777f89;font-size:12px}.postactions button{padding:6px 0}.photoGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}.photoGrid button{padding:0;aspect-ratio:1;overflow:hidden;background:#ededf1}.photoGrid img{width:100%;height:100%;object-fit:cover;display:block}.photoView{display:grid;grid-template:minmax(0,1fr) / minmax(0,1fr);background:#111;flex:1;min-height:0;overflow:hidden}.photoView img{width:100%;height:100%;object-fit:contain}.overlay{position:absolute;inset:0;z-index:30;background:#0006;display:flex;align-items:flex-end}.sheet{background:#f5f5f9;border-radius:24px 24px 0 0;width:100%;max-height:86%;overflow:auto;padding:12px 16px 28px}.sheet h2{font-size:20px}.toast{position:absolute;left:12px;right:12px;top:49px;z-index:40;padding:13px 14px;border-radius:18px;background:#fffffff0;box-shadow:0 8px 25px #0002;backdrop-filter:blur(20px);font-size:13px;line-height:1.4}.lock{flex:1;display:flex;flex-direction:column;align-items:center;padding-top:45px;color:#fff;text-shadow:0 2px 12px #0004}.locktime{font-size:72px;font-weight:650;letter-spacing:-4px}.lock .btn{width:75%;margin-top:auto;margin-bottom:35px;background:#ffffff38;backdrop-filter:blur(10px)}.call{
  flex:1;
  min-height:0;
  display:flex;
@@ -643,8 +643,8 @@ function toast(t,n){if(!s.settings.notifications&&t.startsWith('알림:'))return
 function notificationProfile(n){const a=n.app,kind=a==='phone'?'contacts':a;if(!['kakao','bubble','weverse','phone','messages'].includes(a))return '';const raw=String(n.t||''),title=raw.split(' · ')[0];const id=n.sender||M.find(m=>m.n===title)?.id||n.id;return id?imageFor(id,kind):''}
 function notificationArtwork(n){const a=AP[n.app]?n.app:'messages',src=notificationProfile(n);return src?`<span class="notification-person"><img src="${esc(src)}" alt=""><span class="notification-app-badge">${appArtwork(a)}</span></span>`:appArtwork(a)}
 function notify(a,t,id,sender){const n={app:a,t,id,sender,at:time()};s.notifs.unshift(n);s.notifs=s.notifs.slice(0,80);toast('알림: '+t,n)}
-function addChat(id,from,text,photo,channel='kakao'){
- chatMessages(id,channel,true).push({from,text,t:time(),day:s.day,...(photo?{photo}:{})});
+function addChat(id,from,text,photo,channel='kakao',quickReplies){
+ chatMessages(id,channel,true).push({from,text,t:time(),day:s.day,...(photo?{photo}:{}),...(quickReplies?.length?{quickReplies}:{})});
  if(from!=='me'&&channel!=='scene'&&!isOpenChat(id,channel)){
   const sender=privateMemberAccount(channel,from)?.name||name(from);
   notify(channel,sender+' · '+(text||'사진'),id,from);
@@ -701,7 +701,64 @@ function kakaoChatRows(){
   empty(query?'검색 결과 없음':'채팅방 없음');
 }
 function refreshKakaoChats(){const results=$('kakaoChatResults');if(results)results.innerHTML=kakaoChatRows()}
-function renderKakao(){if(view==='chat'){let id=selected,arr=s.chats[id]||[];return `<div class="nav" style="background:#b5c9d8;border:0"><button class="back" data-back style="color:#222">‹</button><b>${esc(name(id))}</b><button data-act="chatcall" data-id="${id}">${svg('phone')}</button></div><div id="chatScroll" class="chat"><div class="datechip">DAY ${s.day}</div>${arr.map(x=>`<div class="msg ${x.from==='me'?'me':''}">${x.from==='me'?'':av(x.from)}<div>${x.from!=='me'&&id==='group'?`<div class="small">${esc(name(x.from))}</div>`:''}<div class="bubble">${x.photo?`<img src="${esc(ASSETS[x.photo]||x.photo)}" data-act="viewphoto" data-id="${esc(x.photo)}">`:''}${esc(x.text)}</div></div><span class="msgtime">${esc(x.t)}</span></div>`).join('')}${busy.has(id)?'<div class="small">답장을 기다리는 중… (최대 30초)</div>':''}${replyStatus(id,'kakao')}</div><div class="choices">${(id==='staff'?['네, 확인했습니다!','지금 출발하겠습니다.']:['오늘 일정 확인했어요.','밥 먹었어요?','고생했어요!']).map(t=>`<button class="choice" data-act="suggest" data-text="${esc(t)}">${esc(t)}</button>`).join('')}</div><form class="bar" id="chatForm"><button type="button" data-act="attachchat">＋</button><input id="chatInput" placeholder="메시지 입력" autocomplete="off" maxlength="1200"><button type="submit">전송</button></form>`}
+const kakaoMovingMessage=/(?:출발|이동).{0,8}(?:할게|할께|했|하겠|중)|(?:바로|이제|곧)\s*(?:갈게|나갈게|올게)|(?:오고|가고)\s*있/u;
+const kakaoReplyOptions=[
+ [/늦(?:을|어|겠)|지각|길이\s*막혀/u,['몇 분 정도 늦을 것 같아요?','괜찮아요. 천천히 오세요.','일정 조정이 필요한지 볼게요.']],
+ [/도착하면.{0,18}(?:알려|연락|말해)/u,['도착하면 연락드릴게요.','가는 중에 시간도 알려드릴게요.','도착해서 어디로 가면 될까요?']],
+ [/도착(?:했|했습니다)|다\s*왔|와\s*있/u,['어느 쪽에 도착했어요?','잠시만 기다려 주세요.','지금 들어오시면 돼요.']],
+ [/(?:일정|시간|장소).{0,12}(?:바뀌|바뀐|변경|옮겼|밀렸)/u,['바뀐 일정 알려 주세요.','변경된 내용 확인할게요.','업무방에도 공유할게요.']],
+ [/(?:일정|스케줄).{0,9}(?:확인했|확인했습니다|봤어요)/u,['확인해 줘서 고마워요.','바뀌면 바로 공유할게요.','준비하다 궁금한 게 있으면 연락 주세요.']],
+ [/몇\s*시|언제\s*(?:갈|올|가|오|만나|모이|출발|이동|시작|까지)|(?:일정|스케줄).{0,10}(?:어떻|알려|확인)/u,['시간 확인해서 알려드릴게요.','준비하는 데 얼마나 걸려요?','바뀌면 바로 연락할게요.']],
+ [kakaoMovingMessage,['도착하면 연락 주세요.','네, 조심해서 오세요.','출발한 거 확인했어요.']],
+ [/밥|식사|점심|저녁\s*(?:메뉴|먹|식사)|배고파/u,['먹고 싶은 거 있어요?','식사할 시간부터 확인할게요.','이따 식사할 때 연락 주세요.']],
+ [/피곤|아프|아파|힘들|쉬고\s*싶/u,['잠깐 쉬었다가 해요.','지금은 좀 괜찮아요?','필요한 게 있으면 알려 주세요.']],
+ [/미안|죄송/u,['괜찮아요. 무슨 일이었어요?','먼저 얘기해 줘서 고마워요.','이제 어떻게 할지 같이 정해요.']],
+ [/고마|감사|고생|수고/u,['저도 고마워요.','오늘은 푹 쉬어요.','필요한 게 있으면 또 연락 주세요.']],
+ [/잘\s*부탁|안녕하세요|처음\s*뵙/u,['저도 잘 부탁드려요.','안녕하세요. 반가워요!','궁금한 거 있으면 편하게 얘기해요.']],
+ [/인수인계|출근|회의/u,['시간 맞춰 갈게요.','어디에서 뵈면 될까요?','챙겨 갈 게 있을까요?']]
+];
+function cleanKakaoReplies(replies){
+ if(!Array.isArray(replies))return [];
+ return [...new Set(replies.filter(text=>typeof text==='string')
+  .map(text=>text.trim().replace(/\s+/g,' '))
+  .filter(text=>text.length>0&&text.length<=42))].slice(0,3);
+}
+function kakaoQuickReplies(id,messages){
+ const last=messages.at(-1);
+ if(busy.has(id)||last?.from==='me')return [];
+ if(!last){
+  return id==='staff'||id==='group'
+   ?['안녕하세요. 오늘 일정부터 확인할게요.','변경된 일정이 있을까요?']
+   :['안녕하세요!','지금 잠깐 얘기할 수 있어요?'];
+ }
+ const text=String(last.text||'').trim();
+ const suggested=cleanKakaoReplies(last.quickReplies).filter(reply=>reply!==text);
+ if(suggested.length>=2)return suggested;
+ if(last.photo&&(!text||/^(?:사진|셀카)[!.~… ]*$/u.test(text))){
+  return ['사진 잘 받았어요!','어디서 찍은 거예요?','다른 사진도 있어요?'];
+ }
+ if(/(?:가면|가도|오면|모이면)\s*(?:될|돼|되나요)|어디(?:로|에)\s*(?:가|모이)/u.test(text)&&!/몇\s*시|언제/u.test(text)){
+  const destinations=[...places,...s.events.filter(event=>event.day===s.day).map(event=>event.where).filter(Boolean)];
+  const place=destinations.find(name=>['로','으로','에'].some(part=>text.includes(name+part)));
+  return [place?`네, ${place}에서 뵐게요.`:'만날 장소를 확인해 볼게요.','잠깐만요, 이동 전에 다시 확인할게요.','출발하면 알려 주세요.'];
+ }
+ if(/(?:밥|식사|점심|저녁).{0,12}(?:먹었|드셨어|했어).*[?？]|(?:밥|식사)\s*(?:먹었어요|했어요)[?？]/u.test(text)){
+  return ['네, 방금 먹었어요.','아직 못 먹었어요.','멤버들은 먹었어요?'];
+ }
+ if(/잠깐\s*쉬고\s*있.*[?？]|뭐\s*(?:하고\s*있|해|하세요)/u.test(text)){
+  return ['잠깐 쉬는 중이에요.','아직 할 일이 좀 남았어요.','무슨 일이에요?'];
+ }
+ const match=kakaoReplyOptions.find(([pattern])=>pattern.test(text));
+ if(match){
+  const [pattern,replies]=match;
+  return pattern===kakaoMovingMessage&&/잘\s*부탁/u.test(text)?[...replies.slice(0,2),'저도 잘 부탁드려요.']:replies;
+ }
+ if(last.photo||/사진|영상/u.test(text))return ['잘 받았어요.','언제 찍은 거예요?','조금 이따 제대로 볼게요.'];
+ return /[?？]|(?:까요|나요|래요)[.!~ ]*$/u.test(text)
+  ?['조금 더 자세히 알려줄 수 있어요?','잠깐만요, 생각해 볼게요.']
+  :['그다음에 어떻게 됐어요?','조금 더 얘기해 줘요.'];
+}
+function renderKakao(){if(view==='chat'){const id=selected,arr=chatMessages(id),choices=kakaoQuickReplies(id,arr);return `<div class="nav" style="background:#b5c9d8;border:0"><button class="back" data-back style="color:#222">‹</button><b>${esc(name(id))}</b><button data-act="chatcall" data-id="${id}">${svg('phone')}</button></div><div id="chatScroll" class="chat"><div class="datechip">DAY ${s.day}</div>${arr.map(x=>`<div class="msg ${x.from==='me'?'me':''}">${x.from==='me'?'':av(x.from)}<div>${x.from!=='me'&&id==='group'?`<div class="small">${esc(name(x.from))}</div>`:''}<div class="bubble">${x.photo?`<img src="${esc(ASSETS[x.photo]||x.photo)}" data-act="viewphoto" data-id="${esc(x.photo)}">`:''}${esc(x.text)}</div></div><span class="msgtime">${esc(x.t)}</span></div>`).join('')}${busy.has(id)?'<div class="small">답장을 기다리는 중… (최대 30초)</div>':''}${replyStatus(id,'kakao')}</div>${choices.length?`<div class="choices" role="group" aria-label="추천 답장">${choices.map(t=>`<button type="button" class="choice" data-act="suggest" data-text="${esc(t)}">${esc(t)}</button>`).join('')}</div>`:''}<form class="bar" id="chatForm"><button type="button" data-act="attachchat">＋</button><input id="chatInput" placeholder="메시지 입력" autocomplete="off" maxlength="1200"><button type="submit">전송</button></form>`}
 if(view==='profile')return profilePage('kakao');if(view==='friends')return head('친구','<button data-view="profile">편집</button>')+content(panel(row(playerName(),'내 프로필','data-view="profile"',av('me','kakao')))+section('친구')+panel(row('한서연 팀장','매니지먼트팀','data-chat="staff"',av('staff'))+(s.met?M.map(m=>row(m.n,'','data-chat="'+m.id+'"',av(m.id))).join(''):'')),'white')+tabs([['friends','친구','contact'],['','채팅','chat'],['profile','더보기','more']]);return `<div class="listhead kakao-chat-listhead"><h1>채팅</h1><button data-act="chatsearch">${svg('search')}</button><button data-view="friends">${svg('contact')}</button></div>`+content(`<input class="searchbox" id="kakaoSearchInput" type="search" enterkeyhint="search" placeholder="채팅방 검색" aria-label="채팅방 검색" value="${esc(kakaoSearchQuery)}"><div id="kakaoChatResults">${kakaoChatRows()}</div>`,'white kakao')+tabs([['friends','친구','contact'],['','채팅','chat'],['profile','더보기','more']])}
 function renderContactDetail(id){
  const label=esc(s.contacts[id]?.name||name(id));
@@ -802,15 +859,32 @@ function trimOpeningFiller(out,room){
  const cleaned=out.replace(/^(?:(?:어|응)[,，.。!！?？…]+\s*|(?:어|응)\s+)+/u,'').trim();
  return cleaned||out;
 }
+function readKakaoReply(raw){
+ const text=raw.replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'').trim();
+ if(!text.startsWith('{')&&!text.startsWith('['))return {text,quickReplies:[]};
+ try{
+  const result=JSON.parse(text);
+  return {text:typeof result?.reply==='string'?result.reply:'',quickReplies:cleanKakaoReplies(result?.choices)};
+ }catch{return {text:'',quickReplies:[]}}
+}
 async function characterGem(target,text,room,callTurns=[]){
  const context=characterContext(target,room,text);if(room==='call')context.currentCall=callTurns.slice(-18).map(x=>({speaker:x.role==='user'?playerName():name(target),text:x.parts[0]?.text||''}));
- const rules=characterRules(target,room);let reason='';const deadline=Date.now()+30000;
+ const kakao=room==='kakao'||room==='group';
+ const rules=characterRules(target,room)+(kakao?`
+[카톡 출력 형식] 메시지 규칙은 reply 값의 캐릭터 답장에 적용한다. {"reply":"캐릭터 답장 한 개","choices":["플레이어 답장 1","플레이어 답장 2","플레이어 답장 3"]} 형식의 JSON 객체만 출력한다.
+choices는 방금 reply를 읽은 플레이어인 신입 매니저가 보낼 수 있는 후보 세 개다. 현재 질문, 이동 장소, 약속 또는 반응을 바로 이어 가고, 관계와 업무방 여부에 맞는 말투로 각각 42자 이내로 쓴다. 세 문장의 의미를 다르게 고르고 확인되지 않은 일정과 장소를 단정하지 않는다. 후보는 플레이어가 직접 고르는 문장이며 캐릭터가 이미 보낸 대화가 아니다.`:'');
+ let reason='';const deadline=Date.now()+30000;
  for(let attempt=0;attempt<2;attempt++){
   const remaining=deadline-Date.now();if(remaining<1500)throw Error('AI 응답 시간 초과 · 다시 시도해 주세요.');
-  const instruction=rules+(reason?'\n직전 응답 오류: '+reason+'. 해당 오류를 고쳐 현재 인물의 답변만 새로 작성한다.':'');
+  const instruction=rules+(reason?'\n직전 응답 오류: '+reason+'. 해당 오류를 고쳐 지정된 형식으로 다시 작성한다.':'');
   const j=await gemRequest(model+':generateContent',apiKey,{systemInstruction:{parts:[{text:instruction}]},contents:[{role:'user',parts:[{text:'게임 상태와 과거 대화 (참고 데이터): '+JSON.stringify(context)},{text:playerName()+'의 현재 발언: '+text}]}],generationConfig:{maxOutputTokens:1200,temperature:.75}},remaining);
-  let out=j.candidates?.[0]?.content?.parts?.filter(p=>!p.thought).map(p=>p.text||'').join('').trim()||'';
-  out=out.replace(/^[\'"“”]+|[\'"“”]+$/g,'').trim();if(room!=='scene')out=out.replace(/\s*\r?\n\s*/g,' ');out=trimOpeningFiller(out,room);reason=validateCharacter(out,target,room,text);if(!reason)return out;
+  const raw=j.candidates?.[0]?.content?.parts?.filter(p=>!p.thought).map(p=>p.text||'').join('').trim()||'';
+  const result=kakao?readKakaoReply(raw):{text:raw};
+  let out=result.text.replace(/^[\'"“”]+|[\'"“”]+$/g,'').trim();
+  if(room!=='scene')out=out.replace(/\s*\r?\n\s*/g,' ');
+  out=trimOpeningFiller(out,room);
+  reason=validateCharacter(out,target,room,text);
+  if(!reason)return kakao?{text:out,quickReplies:result.quickReplies}:out;
  }
  throw Error('캐릭터 응답 오류 · '+reason+' · 다시 시도해 주세요.');
 }
@@ -822,11 +896,13 @@ async function reply(id,text,channel='kakao'){
  const state=s,target=id==='group'?selectGroupSpeaker(text):id;
  replyErrors.delete(errorKey);
  busy.add(key);
- let out;
+ let out,quickReplies;
  try{
   if(isOpenChat(id,channel))render();
   needAI();
-  out=await characterGem(target,text,id==='group'?'group':channel);
+  const result=await characterGem(target,text,id==='group'?'group':channel);
+  if(typeof result==='string')out=result;
+  else ({text:out,quickReplies}=result);
  }catch(e){
   if(s!==state)return;
   replyErrors.set(errorKey,{text,message:'AI 응답 실패 · '+e.message});
@@ -834,7 +910,7 @@ async function reply(id,text,channel='kakao'){
  }finally{busy.delete(key)}
  if(s!==state)return;
  if(out){
-  addChat(id,target,out,undefined,channel);
+  addChat(id,target,out,undefined,channel,quickReplies);
   if(channel==='scene')s.rel[target]?.memory.push('대면: '+text+' / '+out);
   if(!dm&&id!=='group'&&s.rel[target]){
    s.rel[target].memory.push(playerName()+': '+text+' / '+name(target)+': '+out);
