@@ -1980,13 +1980,11 @@ function officialAccountRow(channel){
 }
 const socialNetworks={
  x:{
-  members:{
-   sion:['riku','jaehee','ryo','off__day'],
-   riku:['sion','yushi','sakuya','salt_room'],
-   yushi:['riku','jaehee','ryo'],
-   jaehee:['sion','riku','yushi','sakuya','off__day'],
-   ryo:['sion','yushi','sakuya'],
-   sakuya:['riku','jaehee','ryo','salt_room']
+  memberContacts:{
+   sion:['off__day'],
+   riku:['salt_room'],
+   jaehee:['off__day'],
+   sakuya:['salt_room']
   },
   contacts:{
    wish_log:['위시로그',['official']],
@@ -1998,13 +1996,12 @@ const socialNetworks={
   }
  },
  instagram:{
-  members:{
-   sion:['riku','yushi','jaehee','film.zip'],
-   riku:['sion','jaehee','ryo','after.nine'],
-   yushi:['sion','riku','ryo','film.zip'],
-   jaehee:['sion','riku','yushi','sakuya'],
-   ryo:['yushi','jaehee','sakuya','after.nine'],
-   sakuya:['riku','ryo','after.nine']
+  memberContacts:{
+   sion:['film.zip'],
+   riku:['after.nine'],
+   yushi:['film.zip'],
+   ryo:['after.nine'],
+   sakuya:['after.nine']
   },
   contacts:{
    'wish.album':['위시 앨범',['official']],
@@ -2016,10 +2013,14 @@ const socialNetworks={
  }
 };
 function socialConnectionIds(channel,owner,direction){
- const {members,contacts}=socialNetworks[channel];
+ const {memberContacts,contacts}=socialNetworks[channel];
+ const members=[...memberIds];
+ const memberFollows=Object.fromEntries(members.map(id=>[
+  id,[...members.filter(other=>other!==id),...(memberContacts[id]||[])]
+ ]));
  const playerFollowing=Object.keys(appFollows(channel)).filter(id=>
   followsMember(channel,id)&&(id===officialFollowKey||(s.met&&memberIds.has(id))));
- const edges={...members,
+ const edges={...memberFollows,
   ...Object.fromEntries(Object.entries(contacts).map(([id,[,following]])=>[id,following])),
   [officialFollowKey]:[],me:playerFollowing
  };
